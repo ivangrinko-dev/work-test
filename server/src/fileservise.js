@@ -1,17 +1,16 @@
-// const uuid = require('uuid');
-// const path = require('path');
+const { log } = require("console");
+const path = require("path");
+const uuid = require("uuid");
 
-// function fileService(file) {
-//     saveFile(file) {
-//         try {
-//             const fileName = uuid.v4();
-//             const filePath = path.resolve('static', fileName);
-//             file.mv(filePath);
-//             return fileName;
-//         } catch (e) {
-//             console.log(e)
-//         }
-//     }
-// }
+function saveFile(file) {
 
-// module.exports = fileService
+    const fileName = uuid.v4();
+    const filePath = path.resolve("static", fileName);
+    file.mv(filePath);
+    return fileName;
+ 
+
+
+}
+
+module.exports = { saveFile };

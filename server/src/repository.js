@@ -5,8 +5,8 @@ async function geteAllUserDb() {
   return data;
 }
 
-async function createUserDb(user, picture) {
-  await TableUser.create(user, picture);
+async function createUserDb(user,) {
+  await TableUser.create(user);
   const data = await TableUser.find();
   return data;
 }

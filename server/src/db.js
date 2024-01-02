@@ -7,6 +7,7 @@ const TableUser = mongoose.model('work_test', {
     title: String,
     connect: String,
     picture: String,
+    pdf: String
 })
 
 // const TableSkills = mongoose.model('skills', {

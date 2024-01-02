@@ -17,8 +17,8 @@ const route = express.Router()
 
 route.post('/',  async (req, res) => {
     try {
-        // console.log(req.files);
-        const data = await createUser (req.body, req.files.picture)
+      // console.log(req.files);
+        const data = await createUser (req.body, req.files.picture, req.files.pdf)
         res.send(data)
     } catch (error) {
         res.send(error.message)
