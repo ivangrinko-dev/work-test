@@ -5,6 +5,7 @@ const {
   geteAllUserDb,
   updateUserDb,
   deleteUserDb,
+  getUserByIdDb
 } = require("./repository");
 
 async function geteAllUser() {
@@ -12,12 +13,15 @@ async function geteAllUser() {
   return data;
 }
 
+async function getUserById(_id) {
+  const data = await getUserByIdDb(_id);
+  return data;
+}
+
 
 async function createUser(user, picture, pdf) {
-  //console.log(picture)
   const fileName = saveFile(picture);
   const fileName1 = saveFile(pdf);
- // console.log({...user, picture: fileName})
   const data = await createUserDb({...user, picture: fileName, pdf: fileName1});
   return data;
 }
@@ -26,8 +30,10 @@ async function createUser(user, picture, pdf) {
 
 
 
-async function updateUser(_id, user) {
-  const data = await updateUserDb(_id, user);
+async function updateUser(_id, user, picture, pdf) {
+  const fileName = saveFile(picture);
+  const fileName1 = saveFile(pdf);
+  const data = await updateUserDb(_id, {...user, picture: fileName, pdf: fileName1});
   return data;
 }
 
@@ -43,4 +49,5 @@ module.exports = {
   geteAllUser,
   updateUser,
   deleteUser,
+  getUserById
 };

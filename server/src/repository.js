@@ -5,6 +5,11 @@ async function geteAllUserDb() {
   return data;
 }
 
+async function getUserByIdDb(_id) {
+  const data = await TableUser.find({ _id: new ObjectId(_id) });
+  return data;
+}
+
 async function createUserDb(user,) {
   await TableUser.create(user);
   const data = await TableUser.find();
@@ -23,4 +28,4 @@ async function deleteUserDb(_id) {
   return data;
 }
 
-module.exports = { createUserDb, geteAllUserDb, updateUserDb, deleteUserDb };
+module.exports = { createUserDb, geteAllUserDb, updateUserDb, deleteUserDb, getUserByIdDb};
